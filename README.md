@@ -1,14 +1,14 @@
 
 Create python package:
-
+```shell
 python setup.py sdist --formats=gztar
-
+```
 Upload the distribution to GCS:
-
+```shell
 gsutil cp dist/sentiment-analyzer-0.1.tar.gz your-bucket-name/package/latest.tar.gz
-
+```
 submit training job:
-
+```shell
 gcloud ml-engine jobs submit training newsgroup_classification_1
 --region europe-west1
 --runtime-version 1.6
@@ -28,9 +28,9 @@ gcloud ml-engine jobs submit training newsgroup_classification_1
 --number_of_test_examples 1353
 --batch_size 2000
 --model_location newsgroup_classification_1
-
+```
 submit training job with hyperparameter tuning:
-
+```shell
 gcloud ml-engine jobs submit training hyperparameter_tuning_2
 --region europe-west1
 --runtime-version 1.6
@@ -52,3 +52,4 @@ gcloud ml-engine jobs submit training hyperparameter_tuning_2
 --model_location hyperparameter_tuning_2
 --number_of_nodes_one 10
 --number_of_nodes_two 10
+```
