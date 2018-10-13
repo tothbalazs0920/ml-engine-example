@@ -1,0 +1,19 @@
+trainingInput:
+  pythonVersion: '3.5'
+  region: eu-west1
+  hyperparameters:
+    goal: MAXIMIZE
+    hyperparameterMetricTag: accuracy
+    maxTrials: 4
+    maxParallelTrials: 2
+    params:
+      - parameterName: number_of_nodes_one
+        type: INTEGER
+        minValue: 10
+        maxValue: 100
+        scaleType: UNIT_LINEAR_SCALE
+      - parameterName: number_of_nodes_two
+        type: INTEGER
+        minValue: 10
+        maxValue: 100
+        scaleType: UNIT_LINEAR_SCALE
