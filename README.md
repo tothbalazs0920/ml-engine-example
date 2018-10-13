@@ -7,7 +7,7 @@ Upload the distribution to GCS:
 ```shell
 gsutil cp dist/sentiment-analyzer-0.1.tar.gz your-bucket-name/package/latest.tar.gz
 ```
-submit training job:
+Submit a training job to ML Engine:
 ```shell
 gcloud ml-engine jobs submit training newsgroup_classification_1
 --region europe-west1
@@ -29,7 +29,7 @@ gcloud ml-engine jobs submit training newsgroup_classification_1
 --batch_size 2000
 --model_location newsgroup_classification_1
 ```
-submit training job with hyperparameter tuning:
+Submit a training job to ML Engine with hyperparameter tuning:
 ```shell
 gcloud ml-engine jobs submit training hyperparameter_tuning_2
 --region europe-west1
