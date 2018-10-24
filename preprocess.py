@@ -41,7 +41,7 @@ news_test = fetch_20newsgroups(subset='test', categories=categories,
 text_train, target_train = news_train.data, news_train.target
 
 tokenizer = Tokenizer(num_words=300)
-tokenizer.fit_on_texts(news_train)
+tokenizer.fit_on_texts(text_train)
 
 with open('data/tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
