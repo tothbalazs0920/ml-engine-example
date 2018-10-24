@@ -26,7 +26,6 @@ def generate_batches(x_file, y_file, batch_size):
 
 
 def create_model(number_of_features):
-    """Create a Keras funcional model with layers."""
 
     feature_vector = Input(shape=(number_of_features,), name='feature_vector')
 
@@ -35,15 +34,12 @@ def create_model(number_of_features):
     predictions = Dense(4, activation='softmax', name='predictions')(layer2)
 
     model = Model(inputs=[feature_vector], outputs=[predictions])
-    model.summary()
     model.compile(optimizer='adam', loss={'predictions': 'binary_crossentropy'},
                   metrics=['accuracy'])
     return model
 
 
 def save_tensorflow_model(model, export_path):
-    """Convert the Keras HDF5 model into TensorFlow SavedModel."""
-
     if file_io.file_exists(export_path):
         return
     builder = saved_model_builder.SavedModelBuilder(export_path)
@@ -113,7 +109,7 @@ if __name__ == "__main__":
     parser.add_argument('--job-dir',
                         required=True,
                         type=str,
-                        help='GCS or local dir to write checkpoints')
+                        help='GCS to write checkpoints')
     parser.add_argument('--x_train_file',
                         required=True,
                         type=str,
@@ -125,7 +121,7 @@ if __name__ == "__main__":
     parser.add_argument('--x_test_file',
                         required=True,
                         type=str,
-                        help='path of training samples')
+                        help='path of test samples')
     parser.add_argument('--y_test_file',
                         required=True,
                         type=str,
